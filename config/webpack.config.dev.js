@@ -8,9 +8,9 @@ module.exports = WebpackMerge(webpackConfig, {
 	devServer: {
 		port: 3000, // 端口
 		hot: true, // 启动热更新
-		contentBase: './dist', //目标文件
+		contentBase: './dist', // 目标文件
 		stats: 'errors-only', // 去除不必要的输出日志
-		// historyApiFallback: true, // 找不到路由页面时就返回默认页面
+		historyApiFallback: true, // 找不到路由页面时就返回默认页面
 	},
 	plugins: [new Webpack.HotModuleReplacementPlugin()],
 });

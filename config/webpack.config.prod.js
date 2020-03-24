@@ -1,5 +1,5 @@
 const path = require('path');
-const webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('./webpack.config.com.js');
 const WebpackMerge = require('webpack-merge');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // 拷贝静态资源
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // 压缩css
@@ -13,27 +13,27 @@ module.exports = WebpackMerge(webpackConfig, {
 			{
 				from: path.resolve(__dirname, '../public'),
 				to: path.resolve(__dirname, '../dist'),
-			},
-		]),
+			}
+		])
 	],
 	optimization: {
 		minimizer: [
 			new UglifyJsPlugin({
-				//压缩js
+				// 压缩js
 				cache: true,
 				parallel: true,
 				sourceMap: true,
 			}),
-			new OptimizeCssAssetsPlugin({}),
+			new OptimizeCssAssetsPlugin({})
 		],
-		splitChunks:{
-			chunks:'all',
-			cacheGroups:{
+		splitChunks: {
+			chunks: 'all',
+			cacheGroups: {
 				libs: {
-				name: "chunk-libs",
-				test: /[\\/]node_modules[\\/]/,
-				priority: 10,
-				chunks: "initial" // 只打包初始时依赖的第三方
+					name: "chunk-libs",
+					test: /[\\/]node_modules[\\/]/,
+					priority: 10,
+					chunks: "initial" // 只打包初始时依赖的第三方
 				}
 			}
 		}

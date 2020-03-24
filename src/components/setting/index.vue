@@ -1,6 +1,6 @@
 <template>
 	<div class="login-item">
-		{{ name }}
+		<div style="width: 200px;">{{name}}</div>
 	</div>
 </template>
 <script>
@@ -9,9 +9,12 @@ export default {
 	data(){
 		return {
 			name: '设置页面'
-		}
+		};
+	},
+	methods: {
+
 	}
-}
+};
 </script>
 <style lang="less">
 	.login-item {

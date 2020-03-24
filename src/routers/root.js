@@ -1,15 +1,16 @@
-import loginConfig from './module/login.js';
-import settingConfig from './module/setting.js';
+import { loginConfig } from "./module/login.js";
+import { settingConfig } from "./module/setting.js";
+
 export default {
-	mode: 'history',
+	mode: "history",
 	routes: [
 		...loginConfig,
 		...settingConfig,
 		{
-			path: '*',
-			redirect: to => {
-				return '/login';
-			},
-		},
-	],
+			path: "/",
+			redirect: () => {
+				return "/login";
+			}
+		}
+	]
 };

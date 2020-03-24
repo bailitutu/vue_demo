@@ -6,13 +6,13 @@
 
 <script>
 export default {
-	name: 'App',
+	name: 'app',
 	data(){
 		return {
 			name: 'vue'
-		}
+		};
 	}
-}
+};
 </script>
 <style>
 	#container {
