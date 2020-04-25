@@ -6,17 +6,11 @@ vue demo + webpack + eslint +babel
 git clone git@github.com:bailitutu/vue_demo.git;
 
 ## 运行
-	```vim
-	cd vue-demo
-	```
-	```vim
-	npm install or yarn
-	```
-	```vim
-	npm run dev or yarn dev
-	```
+	$ cd vue-demo
+
+	$ npm install or yarn
+
+	$ npm run dev or yarn dev
 
 ## 打包
-	```vim
-	npm run build or yarn build
-	```
+	$ npm run build or yarn build
