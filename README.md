@@ -3,7 +3,7 @@ vue demo + webpack + eslint +babel
 
 ## 克隆
 
-git clone git@github.com:bailitutu/vue_demo.git;
+	$ git clone git@github.com:bailitutu/vue_demo.git;
 
 ## 运行
 	$ cd vue-demo
