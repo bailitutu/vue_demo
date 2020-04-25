@@ -12,7 +12,7 @@ module.exports = {
 	parserOptions: {
 		parser: "babel-eslint",
 		ecmaVersion: 2018,
-		sourceType: "module"
+		sourceType: "module",
 	},
 	settings: {
 		"import/resolver": {
@@ -21,7 +21,7 @@ module.exports = {
 			}
 		}
 	},
-	plugins: ["vue"],
+	plugins: ["import","vue"],
 	rules: {
 		// Vue template中的缩进 https://eslint.vuejs.org/rules/
 		"vue/html-indent": ["warn", "tab"],
@@ -126,7 +126,7 @@ module.exports = {
 		// 要求调用无参构造函数时带括号(new- parens)
 		"new-parens": ["warn"],
 		"space-in-parens": ["error", "never"],
-		"space-before-blocks": ["error","always"],
+		"space-before-blocks": ["error", "always"],
 		// 禁止空格和 tab 的混合缩进
 		"no-mixed-spaces-and-tabs": [
 			"warn",
@@ -159,7 +159,7 @@ module.exports = {
 		// eslint-plugin-import 插件相关 https://github.com/benmosher/eslint-plugin-import
 		"import/no-extraneous-dependencies": 0,
 		"import/prefer-default-export": 0,
-		// "import/newline-after-import": ["warn"],
+		"import/newline-after-import": ["warn"],
 		"import/first": 0,
 		"import/no-unresolved": 0,
 		"import/extensions": 0,
@@ -200,7 +200,7 @@ module.exports = {
 		// 不设置优先使用数组和对象解构
 		"prefer-destructuring": 0,
 		// 函数名称或function关键字与开始参数之间允许有空格
-		"space-before-function-paren": ["error","never"],
+		"space-before-function-paren": ["error", "never"],
 		// 不要求使用模板字面量而非字符串连接
 		"prefer-template": 0,
 		// 不禁用嵌套的三元表达式

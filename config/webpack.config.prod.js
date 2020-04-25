@@ -1,20 +1,18 @@
 const path = require('path');
 const webpackConfig = require('./webpack.config.com.js');
 const WebpackMerge = require('webpack-merge');
-const CopyWebpackPlugin = require('copy-webpack-plugin'); // 拷贝静态资源
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // 压缩css
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = WebpackMerge(webpackConfig, {
-	mode: 'production',
-	devtool: 'cheap-module-source-map',
+	mode: "production",
+	devtool: "cheap-module-source-map",
 	plugins: [
-		new CopyWebpackPlugin([
-			{
-				from: path.resolve(__dirname, '../public'),
-				to: path.resolve(__dirname, '../dist'),
-			}
-		])
+		new MiniCssExtractPlugin({
+			filename: "css/[name].[hash].css",
+			chunkFilename: "css/[id].[hash].css"
+		})
 	],
 	optimization: {
 		minimizer: [
@@ -22,12 +20,12 @@ module.exports = WebpackMerge(webpackConfig, {
 				// 压缩js
 				cache: true,
 				parallel: true,
-				sourceMap: true,
+				sourceMap: true
 			}),
 			new OptimizeCssAssetsPlugin({})
 		],
 		splitChunks: {
-			chunks: 'all',
+			chunks: "all",
 			cacheGroups: {
 				libs: {
 					name: "chunk-libs",
@@ -38,4 +36,16 @@ module.exports = WebpackMerge(webpackConfig, {
 			}
 		}
 	},
+	// 警告 webpack 的性能提示
+	performance: {
+		hints: "warning",
+		// 入口起点的最大体积
+		maxEntrypointSize: 50000000,
+		// 生成文件的最大体积
+		maxAssetSize: 30000000,
+		// 只给出 js 文件的性能提示
+		assetFilter: function(assetFilename) {
+			return assetFilename.endsWith('.js');
+		}
+	}
 });
